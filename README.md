@@ -13,6 +13,14 @@ With additional features:
 1. Can count traffic clones or/and views.
 2. Can use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
+> :warning: Not all features of a generic GitHub action is supported: https://github.com/actions/runner/issues/646
+
+> **What does Composite Run Steps Not Support**
+>
+> We don't support setting conditionals, continue-on-error, timeout-minutes, "uses", and secrets on individual steps within a composite action right now.
+>
+> (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
+
 You need 4 repositories:
 
 1. Repository which clone statistic you want to track: `myrepo`
