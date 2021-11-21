@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: andry81/gh-action--accum-stats@master
+      - uses: {{REPO_OWNER}}/gh-action--accum-stats@master
         with:
           stat_repo_owner:          {{REPO_OWNER}}
           stat_repo:                myrepo
