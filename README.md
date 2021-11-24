@@ -4,6 +4,24 @@
 </p>
 <!-- -->
 
+<p align="center">
+  <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/views">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|all&query=count&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|all" />
+  </a>
+• <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/views">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|unq&query=uniques&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|unique per day" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/clones">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20clones|all&query=count&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/clones/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub clones|all" />
+  </a>
+• <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/clones">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20clones|unq&query=uniques&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/clones/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub clones|unique per day" />
+  </a>
+</p>
+
 ---
 
 > This implementation is based on that: https://github.com/andry81/github-clone-count-badge
