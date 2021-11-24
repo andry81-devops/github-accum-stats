@@ -15,24 +15,28 @@ With additional features:
 
 > :warning: Not all features of a generic GitHub action is supported: https://github.com/actions/runner/issues/646
 
-> **What does Composite Run Steps Not Support**
->
-> We don't support setting conditionals, continue-on-error, timeout-minutes, "uses", and secrets on individual steps within a composite action right now.
->
-> (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
+>> **What does Composite Run Steps Not Support**
+>>
+>> We don't support setting conditionals, continue-on-error, timeout-minutes, "uses", and secrets on individual steps within a composite action right now.
+>>
+>> (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
 
 You need 4 repositories:
 
-1. Repository which clone statistic you want to track: `myrepo`
-2. Repository, where clone statistic will be saved: `myrepo--gh-stats`
+1. Repository which clone statistic you want to track: `myrepo`.
+2. Repository, where clone statistic will be saved: `myrepo--gh-stats`.
+   > :information_source: You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
 3. Repository, where to store github workflow scripts: `gh-workflow`.<br>
    You can fork it from here: https://github.com/andry81/gh-workflow
 4. Repository, where to store github composite action: `gh-action--accum-gh-stats`.<br>
    You can fork it from here: https://github.com/andry81/gh-action--accum-gh-stats
 
+   There is other actions you can use (`gh-action--*`):
+   https://github.com/andry81?tab=repositories&q=gh-action--
+
 You need to attach a personal access token (PAT) into the repository being requested for statistic and obtain the push permission (`repo`->`public_repo`):
 
-* `myrepo` -> `SECRET_TOKEN`
+* `myrepo` -> `READ_STATS_TOKEN`
 
 > :information_source: The `myrepo--gh-stats` repository does not require a separate PAT token as long as it is owned by the same repository owner.
 
@@ -73,7 +77,7 @@ The `myrepo` repository should contain 1 file per statistic entity:
 * traffic/views:
   [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81/github-accum-stats/blob/master/.github/workflows/accum-gh-view-stats.yml)
 
-:warning: You must replace all placeholder into respective values:
+> :warning: You must replace all placeholder into respective values:
 
 * `{{REPO_OWNER}}` -> repository owner
 * `{{REPO}}` -> `myrepo`
