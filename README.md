@@ -27,8 +27,8 @@ You need 4 repositories:
 2. Repository, where clone statistic will be saved: `myrepo--gh-stats`
 3. Repository, where to store github workflow scripts: `gh-workflow`.<br>
    You can fork it from here: https://github.com/andry81/gh-workflow
-4. Repository, where to store github composite action: `gh-action--accum-stats`.<br>
-   You can fork it from here: https://github.com/andry81/gh-action--accum-stats
+4. Repository, where to store github composite action: `gh-action--accum-gh-stats`.<br>
+   You can fork it from here: https://github.com/andry81/gh-action--accum-gh-stats
 
 You need to attach a personal access token (PAT) into the repository being requested for statistic and obtain the push permission (`repo`->`public_repo`):
 
