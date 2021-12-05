@@ -42,6 +42,7 @@ With additional features:
 You need 4 repositories:
 
 1. Repository which clone statistic you want to track: `myrepo`.
+   > :information_source: See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all workflow scripts in a single repository.
 2. Repository, where clone statistic will be saved: `myrepo--gh-stats`.
    > :information_source: You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
 3. Repository, where to store github workflow scripts: `gh-workflow`.<br>
@@ -123,3 +124,28 @@ After that you can add badges to reference a repository statistic:
     <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|unique per day|14d" /></a>
 </p>
 ```
+
+## REUSE<a name="reuse"></a>
+
+You can reuse all workflow scripts from a single repository to ease the maintain and scripts edit.
+
+For example, if you have 3 repositories `myrepo1`, `myrepo2`, `myrepo3` and the repository owner is `user`, then you can put all workflow scripts into a single repository `github.com/user/user/.github/workflows` in this way:
+
+* `myrepo1.accum-gh-clone-stats.yml`
+* `myrepo1.accum-gh-view-stats.yml`
+* `myrepo2.accum-gh-clone-stats.yml`
+* `myrepo2.accum-gh-view-stats.yml`
+* `myrepo3.accum-gh-clone-stats.yml`
+* `myrepo3.accum-gh-view-stats.yml`
+
+And use slightly different naming:
+
+```yml
+name: "myrepo1: GitHub clones counter for 14 days at every 8 hours and clones accumulator"
+```
+
+```yml
+name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accumulator"
+```
+
+> :information_source: You still have to attach respective `secrets.READ_STATS_TOKEN` token to the repository with workflow scripts to access another repository statistic.
