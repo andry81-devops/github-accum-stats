@@ -149,3 +149,25 @@ name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accu
 ```
 
 > :information_source: You still have to attach respective `secrets.READ_STATS_TOKEN` token to the repository with workflow scripts to access another repository statistic.
+
+## Known Issues<a name="known_issues"></a>
+
+### `git fetch` error: `could not read Username for 'https://github.com': terminal prompts disabled`
+
+```
+Fetching the repository
+  /usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +refs/heads/master*:refs/remotes/origin/master* +refs/tags/master*:refs/tags/master*
+  Error: fatal: could not read Username for 'https://github.com': terminal prompts disabled
+  The process '/usr/bin/git' failed with exit code 128
+  Waiting 14 seconds before trying again
+```
+
+You missed to update the repo `secrets` token.
+
+### The GitHub composite action has supported not all features of a generic GitHub action: https://github.com/actions/runner/issues/646
+
+> **What does Composite Run Steps Not Support**
+>
+> We don't support setting conditionals, continue-on-error, timeout-minutes, "uses", and secrets on individual steps within a composite action right now.
+>
+> (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
