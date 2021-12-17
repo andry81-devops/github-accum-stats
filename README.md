@@ -63,7 +63,17 @@ To generate PAT: https://docs.github.com/en/github/authenticating-to-github/crea
 
 To attach PAT: https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository
 
-The `myrepo--gh-stats` repository should contain 1 file per each statistic entity:
+The `myrepo--gh-stats` repository should contain 2 files per each statistic entity:
+
+`traffic/clones/latest.json`:
+
+```
+{
+  "count" : 0,
+  "uniques" : 0,
+  "clones" : []
+}
+```
 
 `traffic/clones/latest-accum.json`:
 
@@ -74,6 +84,16 @@ The `myrepo--gh-stats` repository should contain 1 file per each statistic entit
   "count" : 0,
   "uniques" : 0,
   "clones" : []
+}
+```
+
+`traffic/views/latest.json`:
+
+```
+{
+  "count" : 0,
+  "uniques" : 0,
+  "views" : []
 }
 ```
 
