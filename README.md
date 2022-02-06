@@ -170,6 +170,9 @@ name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accu
 
 > :information_source: You still have to attach respective `secrets.READ_STATS_TOKEN` token to the repository with workflow scripts to access another repository statistic.
 
+> :information_source: If you have multiple repositories to store the statistic, then you can create a github organization account like `<owner>-stats` and move all statistic repositories into organization's account.
+> It will leave the repositories page of the original account untouched on each commit into an organization account repository.
+
 ## Known Issues<a name="known_issues"></a>
 
 ### `git fetch` error: `could not read Username for 'https://github.com': terminal prompts disabled`
