@@ -65,49 +65,48 @@ To attach PAT: https://docs.github.com/en/actions/reference/encrypted-secrets#cr
 
 The `myrepo--gh-stats` repository should contain 2 files per each statistic entity:
 
-`traffic/clones/latest.json`:
+> :information_source: The version `gh-workflow` `1.1.3` and higher supports empty/unexisted json files or json files with empty values.
+> So you may not add these files at least for the `gh-action--accum-gh-stats` action.
 
-```
-{
+<details>
+  <summary><tt>traffic/clones</tt>/<tt>latest.json</tt>:</summary>
+  <pre lang="json">{
   "count" : 0,
   "uniques" : 0,
   "clones" : []
-}
-```
+}</pre>
+</details>
 
-`traffic/clones/latest-accum.json`:
-
-```
-{
+<details>
+  <summary><tt>traffic/clones</tt>/<tt>latest-accum.json</tt>:</summary>
+  <pre lang="json">{
   "count_outdated" : 0,
   "uniques_outdated" : 0,
   "count" : 0,
   "uniques" : 0,
   "clones" : []
-}
-```
+}</pre>
+</details>
 
-`traffic/views/latest.json`:
-
-```
-{
+<details>
+  <summary><tt>traffic/views</tt>/<tt>latest.json</tt>:</summary>
+  <pre lang="json">{
   "count" : 0,
   "uniques" : 0,
   "views" : []
-}
-```
-
-`traffic/views/latest-accum.json`:
-
-```
-{
+}</pre>
+</details>
+  
+<details>
+  <summary><tt>traffic/views</tt>/<tt>latest-accum.json</tt>:</summary>
+  <pre lang="json">{
   "count_outdated" : 0,
   "uniques_outdated" : 0,
   "count" : 0,
   "uniques" : 0,
   "views" : []
-}
-```
+}</pre>
+</details>
 
 The `myrepo` repository should contain 1 file per statistic entity:
 
