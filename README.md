@@ -5,26 +5,26 @@
 <!-- -->
 
 <p align="center">
-  <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/views">
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|all&query=count&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|any|total" />
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=count&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/views/latest.json?raw=True" valign="middle" alt="GitHub views|any|14d" /></a>
-• <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/views">
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|unq&query=uniques&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|unique per day|total" />
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/views/latest.json?raw=True" valign="middle" alt="GitHub views|unique per day|14d" /></a>
+  <a href="https://github.com/andry81-stats/github-accum-stats--gh-stats/commits/master/traffic/views">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|all&query=count&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|any|total" />
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=count&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/views/latest.json?raw=True" valign="middle" alt="GitHub views|any|14d" /></a>
+• <a href="https://github.com/andry81-stats/github-accum-stats--gh-stats/commits/master/traffic/views">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|unq&query=uniques&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|unique per day|total" />
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/views/latest.json?raw=True" valign="middle" alt="GitHub views|unique per day|14d" /></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/clones">
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20clones|all&query=count&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/clones/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub clones|any|total" />
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=count&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|any|14d" /></a>
-• <a href="https://github.com/andry81/github-accum-stats--gh-stats/commits/master/traffic/clones">
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20clones|unq&query=uniques&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/clones/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub clones|unique per day|total" />
-    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/andry81/github-accum-stats--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|unique per day|14d" /></a>
+  <a href="https://github.com/andry81-stats/github-accum-stats--gh-stats/commits/master/traffic/clones">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20clones|all&query=count&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/clones/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub clones|any|total" />
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=count&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|any|14d" /></a>
+• <a href="https://github.com/andry81-stats/github-accum-stats--gh-stats/commits/master/traffic/clones">
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20clones|unq&query=uniques&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/clones/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub clones|unique per day|total" />
+    <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|unique per day|14d" /></a>
 </p>
 
 ---
 
-> This implementation is based on that: https://github.com/andry81/github-clone-count-badge
+> This implementation is based on that: https://github.com/andry81-devops/github-clone-count-badge
 
 With additional features:
 
@@ -46,9 +46,9 @@ You need 4 repositories:
 2. Repository, where clone statistic will be saved: `myrepo--gh-stats`.
    > :information_source: You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
 3. Repository, where to store github workflow scripts: `gh-workflow`.<br>
-   You can fork it from here: https://github.com/andry81/gh-workflow
+   You can fork it from here: https://github.com/andry81-devops/gh-workflow
 4. Repository, where to store github composite action: `gh-action--accum-gh-stats`.<br>
-   You can fork it from here: https://github.com/andry81/gh-action--accum-gh-stats
+   You can fork it from here: https://github.com/andry81-devops/gh-action--accum-gh-stats
 
    There is other actions you can use (`gh-action--*`):
    https://github.com/andry81?tab=repositories&q=gh-action--
@@ -111,9 +111,9 @@ The `myrepo--gh-stats` repository should contain 2 files per each statistic enti
 The `myrepo` repository should contain 1 file per statistic entity:
 
 * traffic/clones:
-  [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81/github-accum-stats/blob/master/.github/workflows/accum-gh-clone-stats.yml)
+  [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-clone-stats.yml)
 * traffic/views:
-  [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81/github-accum-stats/blob/master/.github/workflows/accum-gh-view-stats.yml)
+  [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-view-stats.yml)
 
 > :warning: You must replace all placeholder into respective values:
 
