@@ -26,10 +26,24 @@
 
 > This implementation is based on that: https://github.com/andry81-devops/github-clone-count-badge
 
-With additional features:
+Features:
 
-1. Can count traffic clones or/and views.
-2. Can use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+1. Can count GitHub traffic clones or/and views, external inpage downloads (track counter), phpbb forum board view/replies (track counters).
+
+2. Workflow has used a bash script to accumulate statistic:
+
+   * GitHub traffic clones/views: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-stats.sh)
+
+   * External inpage downloads: [accum-downloads.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/inpage/accum-downloads.sh)
+
+   * PhpBB forum board views/replies: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/board/accum-stats.sh)
+
+3. The script accumulates statistic both into a single file: `traffic/clones/latest-accum.json`,
+   and into a set of files grouped by year and allocated per day: `traffic/clones/by_year/YYYY/YYYY-MM-DD.json`.
+
+4. Repository to track and repository to store traffic statistic are different, and you may directly point the statistic as commits list: `https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/clones`.
+
+5. Can use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
 > :warning: Not all features of a generic GitHub action is supported: https://github.com/actions/runner/issues/646
 
@@ -43,15 +57,26 @@ You need 4 repositories:
 
 1. Repository which clone statistic you want to track: `myrepo`.
    > :information_source: See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all workflow scripts in a single repository.
+   
 2. Repository, where clone statistic will be saved: `myrepo--gh-stats`.
    > :information_source: You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
+   
 3. Repository, where to store github workflow scripts: `gh-workflow`.<br>
    You can fork it from here: https://github.com/andry81-devops/gh-workflow
-4. Repository, where to store github composite action: `gh-action--accum-gh-stats`.<br>
-   You can fork it from here: https://github.com/andry81-devops/gh-action--accum-gh-stats
+   
+4. Repository, where to store github composite action:
 
-   There is other actions you can use (`gh-action--*`):
-   https://github.com/andry81?tab=repositories&q=gh-action--
+   * `gh-action--accum-gh-stats`:<br>
+     https://github.com/andry81-devops/gh-action--accum-gh-stats
+
+   * `gh-action--accum-inpage-downloads`:<br>
+     https://github.com/andry81-devops/gh-action--accum-inpage-downloads
+
+   * `gh-action--accum-board-stats`:<br>
+     https://github.com/andry81-devops/gh-action--accum-board-stats
+
+   The list of actions (`gh-action--*`):
+   https://github.com/orgs/andry81-devops/repositories?q=gh-action--
 
 You need to attach a personal access token (PAT) into the repository being requested for statistic and obtain the push permission (`repo`->`public_repo`):
 
@@ -114,6 +139,10 @@ The `myrepo` repository should contain 1 file per statistic entity:
   [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-clone-stats.yml)
 * traffic/views:
   [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-view-stats.yml)
+* traffic/downloads/mypage:
+  [.github/workflows/accum-mypage-download-stats.yml example](https://github.com/andry81-devops/gh-action--accum-inpage-downloads#examples)
+* traffic/board/phpbb:
+  [.github/workflows/accum-phpbb-board-stats.yml example](https://github.com/andry81-devops/gh-action--accum-board-stats#examples)
 
 > :warning: You must replace all placeholder into respective values:
 
