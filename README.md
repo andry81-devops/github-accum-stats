@@ -38,6 +38,8 @@ Features:
 
    * PhpBB forum board views/replies: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/board/accum-stats.sh)
 
+   * Rate limits: [accum-rate-limits.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-rate-limits.sh)
+
 3. The script accumulates statistic both into a single file: `traffic/clones/latest-accum.json`,
    and into a set of files grouped by year and allocated per day: `traffic/clones/by_year/YYYY/YYYY-MM-DD.json`.
 
@@ -66,14 +68,17 @@ You need 4 repositories:
    
 4. Repository, where to store github composite action:
 
-   * `gh-action--accum-gh-stats`:<br>
+   * GitHub composite action to request and accumulate a repository clones and/or views statistic:<br />
      https://github.com/andry81-devops/gh-action--accum-gh-stats
 
-   * `gh-action--accum-inpage-downloads`:<br>
+   * GitHub composite action to request and accumulate downloads statistic from a value on a web page:<br />
      https://github.com/andry81-devops/gh-action--accum-inpage-downloads
 
-   * `gh-action--accum-board-stats`:<br>
+   * GitHub composite action to request and accumulate a forum board post replies and views statistic:<br />
      https://github.com/andry81-devops/gh-action--accum-board-stats
+     
+   * GitHub composite action to request and accumulate an account rate limits:<br />
+     https://github.com/andry81-devops/gh-action--accum-gh-rate-limits
 
    The list of actions (`gh-action--*`):
    https://github.com/orgs/andry81-devops/repositories?q=gh-action--
@@ -137,12 +142,50 @@ The `myrepo` repository should contain 1 file per statistic entity:
 
 * traffic/clones:
   [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-clone-stats.yml)
+  
 * traffic/views:
   [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-view-stats.yml)
+  
 * traffic/downloads/mypage:
   [.github/workflows/accum-mypage-download-stats.yml example](https://github.com/andry81-devops/gh-action--accum-inpage-downloads#examples)
+  
 * traffic/board/phpbb:
   [.github/workflows/accum-phpbb-board-stats.yml example](https://github.com/andry81-devops/gh-action--accum-board-stats#examples)
+  
+* traffic/rate/limits: `.github/workflows/accum-gh-rate-limits.yml` example:
+```yaml
+name: "GitHub rate limits at every 30 minutes accumulator"
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  accum-gh-rate-limits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: andry81-devops/gh-action--accum-gh-rate-limits@master
+        with:
+          deps_repo_owner:          {{REPO_OWNER}}
+          deps_repo_branch:         master
+          deps_repo_read_token:     ${{ github.token }}
+
+          stat_owner:               {{REPO_OWNER}}
+          stat_entity_path:         rate_limit
+          stat_read_token:          ${{ secrets.READ_STATS_TOKEN }}
+
+          curl_flags: >-
+            -H 'Cache-Control: no-cache'
+
+          output_repo_owner:        {{REPO_OWNER}}
+          output_repo:              {{REPO_OWNER}}--gh-stats
+          output_repo_branch:       master
+          output_repo_dir:          traffic/rate/limits
+          output_repo_write_token:  ${{ secrets.READ_STATS_TOKEN }}
+```
 
 > :warning: You must replace all placeholder into respective values:
 
