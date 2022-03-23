@@ -35,3 +35,6 @@ jobs:
           output_repo_dir:          traffic/views
           # NOTE: You should use something like `secrets.WRITE_STATS_TOKEN` if the input and the output repository has different owners.
           output_repo_write_token:  ${{ secrets.READ_STATS_TOKEN }}
+
+          env: >
+            ENABLE_GENERATE_CHANGELOG_FILE=1
