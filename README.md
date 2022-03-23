@@ -185,6 +185,12 @@ jobs:
           output_repo_branch:       master
           output_repo_dir:          traffic/rate/limits
           output_repo_write_token:  ${{ secrets.READ_STATS_TOKEN }}
+
+          #env: >-
+          #  CONTINUE_ON_INVALID_INPUT=1
+          #  CONTINUE_ON_EMPTY_CHANGES=1
+          #  CONTINUE_ON_RESIDUAL_CHANGES=1
+          #  ENABLE_GENERATE_CHANGELOG_FILE=1
 ```
 
 > :warning: You must replace all placeholder into respective values:
