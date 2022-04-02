@@ -22,6 +22,10 @@
     <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/andry81-stats/github-accum-stats--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|unique per day|14d" /></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/andry81/donate"><img src="https://github.com/andry81/andry81/raw/master/badges/donate.svg" valign="middle" alt="donate" /></a>
+</p>
+
 ---
 
 > This implementation is based on that: https://github.com/andry81-devops/github-clone-count-badge
@@ -152,46 +156,8 @@ The `myrepo` repository should contain 1 file per statistic entity:
 * traffic/board/phpbb:
   [.github/workflows/accum-phpbb-board-stats.yml example](https://github.com/andry81-devops/gh-action--accum-board-stats#examples)
   
-* traffic/rate/limits: `.github/workflows/accum-gh-rate-limits.yml` example:
-```yaml
-name: "GitHub rate limits at every 30 minutes accumulator"
-
-on:
-  schedule:
-    - cron: "*/30 * * * *"
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-jobs:
-  accum-gh-rate-limits:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: andry81-devops/gh-action--accum-gh-rate-limits@master
-        with:
-          deps_repo_owner:          {{REPO_OWNER}}
-          deps_repo_branch:         master
-          deps_repo_read_token:     ${{ github.token }}
-
-          stat_owner:               {{REPO_OWNER}}
-          stat_entity_path:         rate_limit
-          stat_read_token:          ${{ secrets.READ_STATS_TOKEN }}
-
-          curl_flags: >-
-            -H 'Cache-Control: no-cache'
-
-          output_repo_owner:        {{REPO_OWNER}}
-          output_repo:              {{REPO_OWNER}}--gh-stats
-          output_repo_branch:       master
-          output_repo_dir:          traffic/rate/limits
-          output_repo_write_token:  ${{ secrets.READ_STATS_TOKEN }}
-
-          #env: >-
-          #  CONTINUE_ON_INVALID_INPUT=1
-          #  CONTINUE_ON_EMPTY_CHANGES=1
-          #  CONTINUE_ON_RESIDUAL_CHANGES=1
-          #  ENABLE_GENERATE_CHANGELOG_FILE=1
-```
+* traffic/rate/limits:
+  [.github/workflows/accum-gh-rate-limits.yml example](https://github.com/andry81-devops/gh-action--accum-gh-rate-limits#examples)
 
 > :warning: You must replace all placeholder into respective values:
 
@@ -263,6 +229,18 @@ Fetching the repository
 ```
 
 You missed to update the repo `secrets` token.
+
+### `git fetch` error: `The process '/usr/bin/git' failed with exit code 1`
+
+```
+Fetching the repository
+  /usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +refs/heads/master*:refs/remotes/origin/master* +refs/tags/master*:refs/tags/master*
+  The process '/usr/bin/git' failed with exit code 1
+```
+
+Variants:
+
+* The checkout performs on an empty repository.
 
 ### The GitHub composite action has supported not all features of a generic GitHub action: https://github.com/actions/runner/issues/646
 
