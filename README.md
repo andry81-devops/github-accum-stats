@@ -51,13 +51,7 @@ Features:
 
 5. Can use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
-> :warning: Not all features of a generic GitHub action is supported: https://github.com/actions/runner/issues/646
-
->> **What does Composite Run Steps Not Support**
->>
->> We don't support setting conditionals, continue-on-error, timeout-minutes, "uses", and secrets on individual steps within a composite action right now.
->>
->> (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
+> :warning: Not all features of a generic GitHub action is supported: [Known Issues](#known_issues)
 
 You need 4 repositories:
 
@@ -188,7 +182,7 @@ After that you can add badges to reference a repository statistic:
 </p>
 ```
 
-## REUSE<a name="reuse"></a>
+## <a name="reuse">REUSE</a>
 
 You can reuse all workflow scripts from a single repository to ease the maintain and scripts edit.
 
@@ -216,7 +210,7 @@ name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accu
 > :information_source: If you have multiple repositories to store the statistic, then you can create a github organization account like `<owner>-stats` and move all statistic repositories into organization's account.
 > It will leave the repositories page of the original account untouched on each commit into an organization account repository.
 
-## Known Issues<a name="known_issues"></a>
+## <a name="known_issues">Known Issues</a>
 
 ### `git fetch` error: `could not read Username for 'https://github.com': terminal prompts disabled`
 
@@ -249,3 +243,11 @@ Variants:
 > We don't support setting conditionals, continue-on-error, timeout-minutes, "uses", and secrets on individual steps within a composite action right now.
 >
 > (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
+
+## <a name="known_issues_updates">Last known updates on composite actions features</a>
+
+* Conditionals: https://github.com/actions/runner/issues/834
+
+  * https://github.blog/changelog/2021-11-09-github-actions-conditional-execution-of-steps-in-actions/
+
+    Actions written in YAML, also known as composite actions, now support if conditionals.
