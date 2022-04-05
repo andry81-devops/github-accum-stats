@@ -32,7 +32,7 @@
 
 Features:
 
-1. Can count GitHub traffic clones or/and views, external inpage downloads (track counter), phpbb forum board view/replies (track counters).
+1. Can count GitHub traffic clones or/and views, external inpage downloads (track counter), phpbb forum board view/replies (track counters), account rate limits of an authenticated user.
 
 2. Workflow has used a bash script to accumulate statistic:
 
@@ -44,12 +44,12 @@ Features:
 
    * Rate limits: [accum-rate-limits.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-rate-limits.sh)
 
-3. The script accumulates statistic both into a single file: `traffic/clones/latest-accum.json`,
+3. Basically most of the scripts does accumulate the response. For example, the clones accumulator script does accumulate statistic both into a single file: `traffic/clones/latest-accum.json`,
    and into a set of files grouped by year and allocated per day: `traffic/clones/by_year/YYYY/YYYY-MM-DD.json`.
 
-4. Repository to track and repository to store traffic statistic are different, and you may directly point the statistic as commits list: `https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/clones`.
+4. A repository based accumulator script has a repository to track and a repository to store traffic statistic and they may be different. If they is different, then you can directly point the statistic as a standalone commits list: `https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/clones`.
 
-5. Can use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+5. All scripts does use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
 > :warning: Not all features of a generic GitHub action is supported: [Known Issues](#known_issues)
 
@@ -95,6 +95,8 @@ The `myrepo--gh-stats` repository should contain 2 files per each statistic enti
 
 > :information_source: The version `gh-workflow` `1.1.3` and higher supports empty/unexisted json files or json files with empty values.
 > So you may not add these files at least for the `gh-action--accum-gh-stats` action.
+
+> :warning: But because the checkout action acript does not support checkout from an empty repository (See the [Known Issues](#known_issues)), then you must add something to the statistic output repository before the checkout.
 
 <details>
   <summary><tt>traffic/clones</tt>/<tt>latest.json</tt>:</summary>
@@ -234,7 +236,8 @@ Fetching the repository
 
 Variants:
 
-* The checkout performs on an empty repository.
+* The checkout performs on an empty repository:
+  https://github.com/actions/checkout/issues/746
 
 ### The GitHub composite action has supported not all features of a generic GitHub action: https://github.com/actions/runner/issues/646
 
