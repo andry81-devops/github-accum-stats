@@ -249,8 +249,12 @@ Variants:
 
 ## <a name="known_issues_updates">Last known updates on composite actions features</a>
 
-* Conditionals: https://github.com/actions/runner/issues/834
+* `add conditional execution of action steps`: https://github.com/actions/runner/issues/834
 
   * https://github.blog/changelog/2021-11-09-github-actions-conditional-execution-of-steps-in-actions/
 
     Actions written in YAML, also known as composite actions, now support if conditionals.
+
+* `Add ability to use continue-on-error from composite Action steps`: https://github.com/actions/runner/issues/1457
+
+* `unable to inject shell to composite action`: https://github.com/actions/runner/issues/835
