@@ -28,21 +28,28 @@
 
 ---
 
+## Tutorial to setup accumulation of various GitHub repository/account statistic
+
 > This implementation is based on that: https://github.com/andry81-devops/github-clone-count-badge
 
-Features:
+> :warning: This tutorial does contain content related to the GitHub itself. All other description has moved into other tutorials.
+>
 
-1. Can count GitHub traffic clones or/and views, external inpage downloads (track counter), phpbb forum board view/replies (track counters), account rate limits of an authenticated user.
+Other tutorials:
+
+* https://github.com/andry81-devops/github-action-extensions
+
+* https://github.com/andry81-devops/accum-content
+
+**Features**:
+
+1. Implementation can accumulate GitHub traffic clones or/and views, GitHub account rate limits of an authenticated user.
 
 2. Workflow has used a bash script to accumulate statistic:
 
    * GitHub traffic clones/views: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-stats.sh)
 
-   * External inpage downloads: [accum-downloads.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/inpage/accum-downloads.sh)
-
-   * PhpBB forum board views/replies: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/board/accum-stats.sh)
-
-   * Rate limits: [accum-rate-limits.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-rate-limits.sh)
+   * GitHub account rate limits: [accum-rate-limits.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-rate-limits.sh)
 
 3. Basically most of the scripts does accumulate the response. For example, the clones accumulator script does accumulate statistic both into a single file: `traffic/clones/latest-accum.json`,
    and into a set of files grouped by year and allocated per day: `traffic/clones/by_year/YYYY/YYYY-MM-DD.json`.
@@ -53,39 +60,40 @@ Features:
 
 > :warning: Not all features of a generic GitHub action is supported: [Known Issues](#known_issues)
 
-You need 4 repositories:
+You need setup 3-4 repositories:
 
-1. Repository which clone statistic you want to track: `myrepo`.
-   > :information_source: See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all workflow scripts in a single repository.
-   
-2. Repository, where clone statistic will be saved: `myrepo--gh-stats`.
+1. Repository which statistic you want to track: `myrepo`.<br />
+   > :information_source: This repository is only required for repository based statistic scripts.
+
+2. Repository, where statistic will be saved: `myrepo--gh-stats`.<br />
    > :information_source: You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
-   
-3. Repository, where to store github workflow scripts: `gh-workflow`.<br>
-   You can fork it from here: https://github.com/andry81-devops/gh-workflow
-   
+
+3. Repository, where to store github workflow support scripts: `gh-workflow`.<br />
+   You can fork or use it from here: https://github.com/andry81-devops/gh-workflow
+
 4. Repository, where to store github composite action:
 
    * GitHub composite action to request and accumulate a repository clones and/or views statistic:<br />
      https://github.com/andry81-devops/gh-action--accum-gh-stats
 
-   * GitHub composite action to request and accumulate downloads statistic from a value on a web page:<br />
-     https://github.com/andry81-devops/gh-action--accum-inpage-downloads
-
-   * GitHub composite action to request and accumulate a forum board post replies and views statistic:<br />
-     https://github.com/andry81-devops/gh-action--accum-board-stats
-     
    * GitHub composite action to request and accumulate an account rate limits:<br />
      https://github.com/andry81-devops/gh-action--accum-gh-rate-limits
 
    The list of actions (`gh-action--*`):
    https://github.com/orgs/andry81-devops/repositories?q=gh-action--
 
-You need to attach a personal access token (PAT) into the repository being requested for statistic and obtain the push permission (`repo`->`public_repo`):
+> :information_source: See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all GitHub workflow scripts (`.github/workflows/*.yml`) in a single repository.
 
-* `myrepo` -> `READ_STATS_TOKEN`
+> :information_source: You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to read content from another repository and obtain the read permission from that repository: `repo`->`public_repo`.
 
-> :information_source: The `myrepo--gh-stats` repository does not require a separate PAT token as long as it is owned by the same repository owner.
+> :information_source: You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to write content into another repository and obtain the push permission into that repository: `repo`.
+
+> :information_source: You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to read statistic of another repository and obtain the push permission into that repository: `repo`.
+
+> :information_source: A separate personal access token (PAT) does not require to be attached into a repository used to run a GitHub action script for another repository as long as that another repository is owned by the same owner as a repository which runs a GitHub action script.
+
+* `myrepo` -> needs read statistic permission
+* `myrepo--gh-stats` -> needs read/write content permission
 
 To generate PAT: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
@@ -140,20 +148,11 @@ The `myrepo--gh-stats` repository should contain 2 files per each statistic enti
 
 The `myrepo` repository should contain 1 file per statistic entity:
 
-* traffic/clones:
-  [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-clone-stats.yml)
-  
-* traffic/views:
-  [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81-devops/github-accum-stats/blob/master/.github/workflows/accum-gh-view-stats.yml)
-  
-* traffic/downloads/mypage:
-  [.github/workflows/accum-mypage-download-stats.yml example](https://github.com/andry81-devops/gh-action--accum-inpage-downloads#examples)
-  
-* traffic/board/phpbb:
-  [.github/workflows/accum-phpbb-board-stats.yml example](https://github.com/andry81-devops/gh-action--accum-board-stats#examples)
-  
-* traffic/rate/limits:
-  [.github/workflows/accum-gh-rate-limits.yml example](https://github.com/andry81-devops/gh-action--accum-gh-rate-limits#examples)
+* [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81-devops/accum-gh-clone-stats#examples)
+
+* [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81-devops/accum-gh-view-stats#examples)
+
+* [.github/workflows/accum-gh-rate-limits.yml example](https://github.com/andry81-devops/gh-action--accum-gh-rate-limits#examples)
 
 > :warning: You must replace all placeholder into respective values:
 
@@ -207,8 +206,6 @@ name: "myrepo1: GitHub clones counter for 14 days at every 8 hours and clones ac
 name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accumulator"
 ```
 
-> :information_source: You still have to attach respective `secrets.READ_STATS_TOKEN` token to the repository with workflow scripts to access another repository statistic.
-
 > :information_source: If you have multiple repositories to store the statistic, then you can create a github organization account like `<owner>-stats` and move all statistic repositories into organization's account.
 > It will leave the repositories page of the original account untouched on each commit into an organization account repository.
 
@@ -247,7 +244,9 @@ Variants:
 >
 > (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
 
-## <a name="known_issues_updates">Last known updates on composite actions features</a>
+## <a name="known_issues_updates">Last known issues updates</a>
+
+### <a name="composite_action_features_updates">Updates on composite actions features</a>
 
 * `add conditional execution of action steps`: https://github.com/actions/runner/issues/834
 
@@ -258,3 +257,5 @@ Variants:
 * `Add ability to use continue-on-error from composite Action steps`: https://github.com/actions/runner/issues/1457
 
 * `unable to inject shell to composite action`: https://github.com/actions/runner/issues/835
+
+* `Boolean inputs are not actually booleans` : https://github.com/actions/runner/issues/1483
