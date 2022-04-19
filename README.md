@@ -148,11 +148,11 @@ The `myrepo--gh-stats` repository should contain 2 files per each statistic enti
 
 The `myrepo` repository should contain 1 file per statistic entity:
 
-* [.github/workflows/accum-gh-clone-stats.yml](https://github.com/andry81-devops/accum-gh-clone-stats#examples)
+* [.github/workflows/accum-gh-clone-stats.yml example](https://github.com/andry81-devops/gh-action--accum-gh-stats#accum-gh-clone-stats-yml)
 
-* [.github/workflows/accum-gh-view-stats.yml](https://github.com/andry81-devops/accum-gh-view-stats#examples)
+* [.github/workflows/accum-gh-view-stats.yml example](https://github.com/andry81-devops/gh-action--accum-gh-stats#accum-gh-view-stats-yml)
 
-* [.github/workflows/accum-gh-rate-limits.yml example](https://github.com/andry81-devops/gh-action--accum-gh-rate-limits#examples)
+* [.github/workflows/accum-gh-rate-limits.yml example](https://github.com/andry81-devops/gh-action--accum-gh-rate-limits#accum-gh-rate-limits-yml)
 
 > :warning: You must replace all placeholder into respective values:
 
@@ -183,7 +183,7 @@ After that you can add badges to reference a repository statistic:
 </p>
 ```
 
-## <a name="reuse">REUSE</a>
+## REUSE
 
 You can reuse all workflow scripts from a single repository to ease the maintain and scripts edit.
 
@@ -209,7 +209,7 @@ name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accu
 > :information_source: If you have multiple repositories to store the statistic, then you can create a github organization account like `<owner>-stats` and move all statistic repositories into organization's account.
 > It will leave the repositories page of the original account untouched on each commit into an organization account repository.
 
-## <a name="known_issues">Known Issues</a>
+## Known Issues
 
 ### `git fetch` error: `could not read Username for 'https://github.com': terminal prompts disabled`
 
@@ -244,9 +244,9 @@ Variants:
 >
 > (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
 
-## <a name="known_issues_updates">Last known issues updates</a>
+## Last known issues updates
 
-### <a name="composite_action_features_updates">Updates on composite actions features</a>
+### Updates on composite actions features
 
 * `add conditional execution of action steps`: https://github.com/actions/runner/issues/834
 
