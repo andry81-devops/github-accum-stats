@@ -58,7 +58,7 @@ Other tutorials:
 
 5. All scripts does use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
-> :warning: Not all features of a generic GitHub action is supported: [Known Issues](#known_issues)
+> :warning: Not all features of a generic GitHub action is supported: [Known Issues](#known-issues)
 
 You need setup 3-4 repositories:
 
@@ -104,7 +104,7 @@ The `myrepo--gh-stats` repository should contain 2 files per each statistic enti
 > :information_source: The version `gh-workflow` `1.1.3` and higher supports empty/unexisted json files or json files with empty values.
 > So you may not add these files at least for the `gh-action--accum-gh-stats` action.
 
-> :warning: But because the checkout action acript does not support checkout from an empty repository (See the [Known Issues](#known_issues)), then you must add something to the statistic output repository before the checkout.
+> :warning: But because the checkout action acript does not support checkout from an empty repository (See the [Known Issues](#known-issues)), then you must add something to the statistic output repository before the checkout.
 
 <details>
   <summary><tt>traffic/clones</tt>/<tt>latest.json</tt>:</summary>
