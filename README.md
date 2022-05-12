@@ -93,52 +93,8 @@ To generate PAT: https://docs.github.com/en/github/authenticating-to-github/crea
 
 To attach PAT: https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository
 
-The `myrepo--gh-stats` repository should contain 2 files per each statistic entity:
-
-> :information_source: The version `gh-workflow` `1.1.3` and higher supports empty/unexisted json files or json files with empty values.
-> So you may not add these files at least for the `gh-action--accum-gh-stats` action.
-
-> :warning: But because the checkout action acript does not support checkout from an empty repository (See the [Known Issues](#known-issues)), then you must add something to the statistic output repository before the checkout.
-
-<details>
-  <summary><tt>traffic/clones</tt>/<tt>latest.json</tt>:</summary>
-  <pre lang="json">{
-  "count" : 0,
-  "uniques" : 0,
-  "clones" : []
-}</pre>
-</details>
-
-<details>
-  <summary><tt>traffic/clones</tt>/<tt>latest-accum.json</tt>:</summary>
-  <pre lang="json">{
-  "count_outdated" : 0,
-  "uniques_outdated" : 0,
-  "count" : 0,
-  "uniques" : 0,
-  "clones" : []
-}</pre>
-</details>
-
-<details>
-  <summary><tt>traffic/views</tt>/<tt>latest.json</tt>:</summary>
-  <pre lang="json">{
-  "count" : 0,
-  "uniques" : 0,
-  "views" : []
-}</pre>
-</details>
-  
-<details>
-  <summary><tt>traffic/views</tt>/<tt>latest-accum.json</tt>:</summary>
-  <pre lang="json">{
-  "count_outdated" : 0,
-  "uniques_outdated" : 0,
-  "count" : 0,
-  "uniques" : 0,
-  "views" : []
-}</pre>
-</details>
+> :warning: Beginning from the `gh-workflow` `1.3.0` as a dependency to all action scripts the checkout action acript https://github.com/action/checkout can be replaced by a wrapper script https://github.com/andry81-devops/gh-action--git-checkout which does support checkout from an empty repository and you can leave an output repository empty before the first checkout.
+> Now the initial output repository state is not required as input. The information about initial output repository state is removed from here.
 
 The `myrepo` repository should contain 1 file per statistic entity:
 
@@ -157,7 +113,7 @@ After the github workflow yaml file is commited and pushed, you can run the acti
 
 After that you can add badges to reference a repository statistic:
 
-```
+```xml
 <p align="center">
   <a href="https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/views">
     <img src="https://img.shields.io/badge/dynamic/json?color=success&label=Github%20views|all&query=count&url=https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/raw/master/traffic/views/latest-accum.json?raw=True&logo=github" valign="middle" alt="GitHub views|any|total" />
@@ -176,6 +132,46 @@ After that you can add badges to reference a repository statistic:
     <img src="https://img.shields.io/badge/dynamic/json?color=success&label=14d&query=uniques&url=https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/raw/master/traffic/clones/latest.json?raw=True" valign="middle" alt="GitHub clones|unique per day|14d" /></a>
 </p>
 ```
+
+> :information_source: There is https://github.com/andry81-devops/gh-action--accum-content action script which can periodically download all the dynamic badges and other files into a content cache repository.
+
+You can add links pointing a content cache repository instead, to leave the `README.md` a bit simplier:
+
+```xml
+<p align="center">
+  <a href="https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/views">
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/views/all.svg" valign="middle" alt="GitHub views|any|total" />
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/views/all-14d.svg" valign="middle" alt="GitHub views|any|14d" /></a>
+• <a href="https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/views">
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/views/unq.svg" valign="middle" alt="GitHub views|unique per day|total" />
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/views/unq-14d.svg" valign="middle" alt="GitHub views|unique per day|14d" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/clones">
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/clones/all.svg" valign="middle" alt="GitHub clones|any|total" />
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/clones/all-14d.svg" valign="middle" alt="GitHub clones|any|14d" /></a>
+• <a href="https://github.com/{{REPO_OWNER}}/{{REPO}}--gh-stats/commits/master/traffic/clones">
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/clones/unq.svg" valign="middle" alt="GitHub clones|unique per day|total" />
+    <img src="https://github.com/{{REPO_OWNER}}-cache/{{REPO_OWNER}}--gh-content-cache/raw/master/repo/{{REPO_OWNER}}/{{REPO}}/badges/traffic/clones/unq-14d.svg" valign="middle" alt="GitHub clones|unique per day|14d" /></a>
+</p>
+```
+
+**Features of a standalone content cache repository**:
+
+* Can be extracted content not related to a specific repository or related to multiple repositories from a target repository.
+
+* Extracted content can be updated separately from a target repository. For example, after a release commit into a target repository.
+
+* Traffic to an external resource can be replaced by traffic to the GitHub resource with better caching.
+
+* All content can be stored in a single place and content change be saved into a commits list.
+
+* Download and accumulate process can be controlled by explicit config file with parameters (can be outside of a content cache repository).
+
+* The content cache repository can be rewrited to remove old files and history does not touching anything else.
+
+The rest of details about the content accumulation script: https://github.com/andry81-devops/accum-content
 
 ## REUSE
 
@@ -215,7 +211,9 @@ Fetching the repository
   Waiting 14 seconds before trying again
 ```
 
-You missed to update the repo `secrets` token.
+Variants:
+
+* You missed to update the repo `secrets` token.
 
 ### `git fetch` error: `The process '/usr/bin/git' failed with exit code 1`
 
