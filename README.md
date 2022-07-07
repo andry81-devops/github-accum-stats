@@ -93,7 +93,7 @@ To generate PAT: https://docs.github.com/en/github/authenticating-to-github/crea
 
 To attach PAT: https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository
 
-> **Warning** Beginning from the `gh-workflow` `1.3.0` as a dependency to all action scripts the checkout action acript https://github.com/action/checkout can be replaced by a wrapper script https://github.com/andry81-devops/gh-action--git-checkout which does support checkout from an empty repository and you can leave an output repository empty before the first checkout.
+> **Warning** Beginning from the `gh-workflow` `1.3.0` as a dependency to all action scripts the checkout action script https://github.com/actions/checkout can be replaced by a wrapper script https://github.com/andry81-devops/gh-action--git-checkout which does support checkout from an empty repository and you can leave an output repository empty before the first checkout.
 > Now the initial output repository state is not required as input. The information about initial output repository state is removed from here.
 
 The `myrepo` repository should contain 1 file per statistic entity:
@@ -159,7 +159,7 @@ You can add links pointing a content cache repository instead, to leave the `REA
 
 **Features of a standalone content cache repository**:
 
-* Can be extracted content not related to a specific repository or related to multiple repositories from a target repository.
+* Can extract content not related to a specific repository or related to multiple repositories from a target repository.
 
 * Extracted content can be updated separately from a target repository. For example, after a release commit into a target repository.
 
