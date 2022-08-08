@@ -201,6 +201,13 @@ name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accu
 
 ## Known Issues
 
+### GitHub Actions does automatically disable all workflow scripts after a period of time of inactivity
+
+* Last known period: 60 days
+
+For example, if GitHub repository has workflow scripts and was inactive a period of time, then all workflow scripts does disable.
+You have to either make a commit to update the period and reenable the workflow scripts manually.
+
 ### `git fetch` error: `could not read Username for 'https://github.com': terminal prompts disabled`
 
 ```
