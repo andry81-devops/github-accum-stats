@@ -175,6 +175,8 @@ The rest of details about the content accumulation script: https://github.com/an
 
 ## REUSE
 
+> **Warning** The GitHub does disable all workflow scripts in case of repository main branch inactivity for a period of time: [Known Issues](#known-issues)
+
 You can reuse all workflow scripts from a single repository to ease the maintain and scripts edit.
 
 For example, if you have 3 repositories `myrepo1`, `myrepo2`, `myrepo3` and the repository owner is `user`, then you can put all workflow scripts into a single repository `github.com/user/user/.github/workflows` in this way:
@@ -207,6 +209,8 @@ name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accu
 
 For example, if GitHub repository has workflow scripts and was inactive a period of time, then all workflow scripts does disable.
 You have to either make a commit to update the period and reenable the workflow scripts manually.
+
+https://stackoverflow.com/questions/67184368/prevent-scheduled-github-actions-from-becoming-disabled
 
 ### `git fetch` error: `could not read Username for 'https://github.com': terminal prompts disabled`
 
