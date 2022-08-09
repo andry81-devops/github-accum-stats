@@ -243,6 +243,13 @@ Variants:
 >
 > (Note: we do support these attributes being set in workflows for a step that uses a composite run steps action)
 
+### Cygwin error: `Error: open /tmp/tmp.XXXXXXXXXX/...: The system cannot find the path specified.`
+
+Variants:
+
+* You had try to run not Cygwin executable from the Cygwin shell.
+  To avoid the error do use the `TEMP_DIR` variable to declare explicit temporary directory out of Cygwin `/tmp` directory.
+
 ## Last known issues updates
 
 ### Updates on composite actions features
