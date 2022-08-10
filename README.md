@@ -251,8 +251,21 @@ Variants:
 
 Variants:
 
-* You had try to run not Cygwin executable from the Cygwin shell.
-  To avoid the error do use the `TEMP_DIR` variable to declare explicit temporary directory out of Cygwin `/tmp` directory.
+* You have had try to run not Cygwin executable from the Cygwin shell. The Cygwin does not convert a posix path into the Windows path automatically.
+
+  To workaround the error do use the `TEMP_DIR` variable to declare explicit temporary directory out of Cygwin `/tmp` directory.
+
+### Linux error: `Error: open /tmp/...: no such file or directory`
+
+Variants:
+
+* You have had try to run `yq` from https://github.com/mikefarah/yq.
+
+  Related issue:
+
+  * `yq fails to process files in /tmp` : https://github.com/mikefarah/yq/discussions/1299
+
+  To workaround the error do use the `TEMP_DIR` variable to declare explicit temporary directory out of Cygwin `/tmp` directory.
 
 ## Last known issues updates
 
