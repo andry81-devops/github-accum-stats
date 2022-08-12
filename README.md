@@ -29,11 +29,7 @@
 > **Warning** This tutorial does contain content related to the GitHub itself. All other description has moved into other tutorials.
 >
 
-Other tutorials:
-
-* https://github.com/andry81-devops/github-action-extensions
-
-* https://github.com/andry81-devops/accum-content
+All tutorials: https://github.com/andry81/index#tutorials
 
 **Features**:
 
