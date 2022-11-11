@@ -69,8 +69,8 @@ You need setup 3-4 repositories:
    * GitHub composite action to request and accumulate an account rate limits:<br />
      https://github.com/andry81-devops/gh-action--accum-gh-rate-limits
 
-   The list of actions (`gh-action--*`):
-   https://github.com/orgs/andry81-devops/repositories?q=%22gh-action--*%22
+   All action scripts:<br />
+   https://github.com/andry81/index#action-scripts
 
 > **Note** See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all GitHub workflow scripts (`.github/workflows/*.yml`) in a single repository.
 
