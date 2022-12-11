@@ -155,19 +155,7 @@ You can add links pointing a content cache repository instead, to leave the `REA
 
 **Features of a standalone content cache repository**:
 
-* Can extract content not related to a specific repository or related to multiple repositories from a target repository.
-
-* Extracted content can be updated separately from a target repository. For example, after a release commit into a target repository.
-
-* Traffic to an external resource can be replaced by traffic to the GitHub resource with better caching.
-
-* All content can be stored in a single place and content change be saved into a commits list.
-
-* Download and accumulate process can be controlled by explicit config file with parameters (can be outside of a content cache repository).
-
-* The content cache repository can be rewrited to remove old files and history does not touching anything else.
-
-The rest of details about the content accumulation script: https://github.com/andry81-devops/accum-content
+https://github.com/andry81-devops/accum-content#features-of-a-standalone-content-cache-repository
 
 ## REUSE
 
