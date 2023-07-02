@@ -37,9 +37,9 @@ All tutorials: https://github.com/andry81/index#tutorials
 
 2. Workflow has used a bash script to accumulate statistic:
 
-   * GitHub traffic clones/views: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-stats.sh)
+   * GitHub traffic clones/views: [accum-stats.sh](https://github.com/andry81-devops/gh-workflow/tree/HEAD/bash/github/accum-stats.sh)
 
-   * GitHub account rate limits: [accum-rate-limits.sh](https://github.com/andry81-devops/gh-workflow/blob/master/bash/github/accum-rate-limits.sh)
+   * GitHub account rate limits: [accum-rate-limits.sh](https://github.com/andry81-devops/gh-workflow/tree/HEAD/bash/github/accum-rate-limits.sh)
 
 3. Basically most of the scripts does accumulate the response. For example, the clones accumulator script does accumulate statistic both into a single file: `traffic/clones/latest-accum.json`,
    and into a set of files grouped by year and allocated per day: `traffic/clones/by_year/YYYY/YYYY-MM-DD.json`.
