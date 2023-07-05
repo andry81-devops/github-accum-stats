@@ -22,16 +22,16 @@
 
 ---
 
-## Tutorial to setup accumulation of various GitHub repository/account statistic
+# Tutorial to setup accumulation of various GitHub repository/account statistic
 
 > This implementation is based on that: https://github.com/andry81-devops/github-clone-count-badge
 
-> **Warning** This tutorial does contain content related to the GitHub itself. All other description has moved into other tutorials.
+> **Warning** This tutorial is contain content related to the GitHub itself. All other description has moved into other tutorials.
 >
 
 All tutorials: https://github.com/andry81/index#tutorials
 
-**Features**:
+## Features:
 
 1. Implementation can accumulate GitHub traffic clones or/and views, GitHub account rate limits of an authenticated user.
 
@@ -50,7 +50,9 @@ All tutorials: https://github.com/andry81/index#tutorials
 
 > **Warning** Not all features of a generic GitHub action is supported: [Known Issues](#known-issues)
 
-You need setup 3-4 repositories:
+## Repositories:
+
+You need setup 3-4 repositories.
 
 1. Repository which statistic you want to track: `myrepo`.<br />
    > **Note** This repository is only required for repository based statistic scripts.
@@ -63,7 +65,7 @@ You need setup 3-4 repositories:
 
 4. Repository, where to store github composite action:
 
-   * GitHub composite action to request and accumulate a repository clones and/or views statistic:<br />
+   * GitHub composite action to request and accumulate a repository clones/views statistic:<br />
      https://github.com/andry81-devops/gh-action--accum-gh-stats
 
    * GitHub composite action to request and accumulate an account rate limits:<br />
@@ -82,8 +84,8 @@ You need setup 3-4 repositories:
 
 > **Note** A separate personal access token (PAT) does not require to be attached into a repository used to run a GitHub action script for another repository as long as that another repository is owned by the same owner as a repository which runs a GitHub action script.
 
-* `myrepo` -> needs read statistic permission
-* `myrepo--gh-stats` -> needs read/write content permission
+* `myrepo` -> needs read/write access permissions to read repository statistic as not public repository metadata (not files)
+* `myrepo--gh-stats` -> needs read/write access permissions to read/write repository files
 
 To generate PAT: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
 
@@ -153,7 +155,7 @@ You can add links pointing a content cache repository instead, to leave the `REA
 </p>
 ```
 
-**Features of a standalone content cache repository**:
+##Features of a standalone content cache repository:
 
 https://github.com/andry81-devops/accum-content#features-of-a-standalone-content-cache-repository
 
