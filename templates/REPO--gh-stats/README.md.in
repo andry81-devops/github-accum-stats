@@ -1,0 +1,50 @@
+<!-- semi-template markdown readme file for `REPO--gh-stats` repository -->
+
+<!--
+Legend:
+
+  {{GH_OWNER}}          : statistic generator (analyzed) repository owner
+  {{GH_REPO}}           : statistic generator (analyzed) repository
+  {{GH_ACTIONS_OWNER}}  : repository owner of workflow actions to retrieve statistic
+  {{GH_ACTIONS_REPO}}   : repository with workflow actions to retrieve statistic
+  {{GH_STATS_OWNER}}    : repository owner of collected statistic data
+  {{GH_STATS_REPO}}     : repository with collected statistic data
+-->
+
+<!--
+Variable's examples:
+
+  GH_OWNER              : user
+  GH_REPO               : myrepo
+  GH_ACTIONS_OWNER      : user-actions
+  GH_ACTIONS_REPO       : actions
+  GH_STATS_OWNER        : user-stats
+  GH_STATS_REPO         : myrepo--gh-stats
+-->
+
+<!-- workflow actions -->
+<p align="center">
+<table>
+  <tr>
+    <th><h3>Repository</h3></th>
+    <th><h3>Workflow</h3></th>
+    <th><h3>Status</h3></th>
+  </tr>
+  <tr>
+    <td rowspan="2"><a href="https://github.com/{{GH_OWNER}}/{{GH_REPO}}">{{GH_OWNER}}/{{GH_REPO}}</a></td>
+    <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/tree/HEAD/.github/workflows/{{GH_REPO}}.accum-gh-clone-stats.yml">{{GH_REPO}}.accum-gh-clone-stats.yml</a></td>
+    <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/actions/workflows/{{GH_REPO}}.accum-gh-clone-stats.yml"><img src="https://img.shields.io/github/actions/workflow/status/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/{{GH_REPO}}.accum-gh-clone-stats.yml?logo=github&label=workflow" valign="middle" alt="workflow" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/tree/HEAD/.github/workflows/{{GH_STATS_REPO}}.accum-gh-view-stats.yml">{{GH_STATS_REPO}}.accum-gh-view-stats.yml</a></td>
+    <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/actions/workflows/{{GH_REPO}}.accum-gh-view-stats.yml"><img src="https://img.shields.io/github/actions/workflow/status/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/{{GH_REPO}}.accum-gh-view-stats.yml?logo=github&label=workflow" valign="middle" alt="workflow" /></a></td>
+  </tr>
+</table>
+
+<hr />
+
+<!-- collected statistic data repository metrics -->
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/github/repo-size/{{GH_STATS_OWNER}}/{{GH_STATS_REPO}}?logo=github" valign="middle" alt="GitHub repo size in bytes" /></a>
+• <a href="https://github.com/XAMPPRocky/tokei"><img src="https://tokei.rs/b1/github/{{GH_STATS_OWNER}}/{{GH_STATS_REPO}}?category=lines" valign="middle" alt="lines of text by tokei.rs" /></a>
+</p>
