@@ -1,0 +1,7 @@
+Selected,Find,Replace,WholeWord,MatchCase,UseVariables,Regex,Extended
+1,{{GH_OWNER}},user,0,1,0,0,0
+1,{{GH_REPO}},myrepo,0,1,0,0,0
+1,{{GH_ACTIONS_OWNER}},user-actions,0,1,0,0,0
+1,{{GH_ACTIONS_REPO}},actions,0,1,0,0,0
+1,{{GH_STATS_OWNER}},user-stats,0,1,0,0,0
+1,{{GH_STATS_REPO}},myrepo--gh-stats,0,1,0,0,0
