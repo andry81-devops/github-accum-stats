@@ -22,9 +22,16 @@ Variable's examples:
   GH_STATS_REPO         : myrepo--gh-stats
 -->
 
-<!-- workflow actions -->
+<!-- collected statistic data repository metrics -->
 <p align="center">
-<table>
+  <a href="#"><img src="https://img.shields.io/github/repo-size/{{GH_STATS_OWNER}}/{{GH_STATS_REPO}}?logo=github" valign="middle" alt="GitHub repo size in bytes" /></a>
+• <a href="https://github.com/XAMPPRocky/tokei"><img src="https://tokei.rs/b1/github/{{GH_STATS_OWNER}}/{{GH_STATS_REPO}}?category=lines" valign="middle" alt="lines of text by tokei.rs" /></a>
+</p>
+
+<hr />
+
+<!-- workflow actions -->
+<table align="center">
   <tr>
     <th><h3>Repository</h3></th>
     <th><h3>Workflow</h3></th>
@@ -40,11 +47,3 @@ Variable's examples:
     <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/actions/workflows/{{GH_REPO}}.accum-gh-view-stats.yml"><img src="https://img.shields.io/github/actions/workflow/status/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/{{GH_REPO}}.accum-gh-view-stats.yml?logo=github&label=workflow" valign="middle" alt="workflow" /></a></td>
   </tr>
 </table>
-
-<hr />
-
-<!-- collected statistic data repository metrics -->
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/github/repo-size/{{GH_STATS_OWNER}}/{{GH_STATS_REPO}}?logo=github" valign="middle" alt="GitHub repo size in bytes" /></a>
-• <a href="https://github.com/XAMPPRocky/tokei"><img src="https://tokei.rs/b1/github/{{GH_STATS_OWNER}}/{{GH_STATS_REPO}}?category=lines" valign="middle" alt="lines of text by tokei.rs" /></a>
-</p>
