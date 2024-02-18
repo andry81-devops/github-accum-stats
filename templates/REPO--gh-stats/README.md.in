@@ -43,7 +43,7 @@ Variable's examples:
     <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/actions/workflows/{{GH_REPO}}.accum-gh-clone-stats.yml"><img src="https://img.shields.io/github/actions/workflow/status/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/{{GH_REPO}}.accum-gh-clone-stats.yml?logo=github&label=workflow" valign="middle" alt="workflow" /></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/tree/HEAD/.github/workflows/{{GH_STATS_REPO}}.accum-gh-view-stats.yml">{{GH_STATS_REPO}}.accum-gh-view-stats.yml</a></td>
+    <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/tree/HEAD/.github/workflows/{{GH_REPO}}.accum-gh-view-stats.yml">{{GH_REPO}}.accum-gh-view-stats.yml</a></td>
     <td><a href="https://github.com/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/actions/workflows/{{GH_REPO}}.accum-gh-view-stats.yml"><img src="https://img.shields.io/github/actions/workflow/status/{{GH_ACTIONS_OWNER}}/{{GH_ACTIONS_REPO}}/{{GH_REPO}}.accum-gh-view-stats.yml?logo=github&label=workflow" valign="middle" alt="workflow" /></a></td>
   </tr>
 </table>
