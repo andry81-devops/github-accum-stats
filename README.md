@@ -24,10 +24,11 @@
 
 # Tutorial to setup accumulation of various GitHub repository/account statistic
 
+> [!TIP]
 > This implementation is based on that: https://github.com/andry81-devops/github-clone-count-badge
 
-> **Warning** This tutorial is contain content related to the GitHub itself. All other description has moved into other tutorials.
->
+> [!WARNING]
+> This tutorial is contain content related to the GitHub itself. All other description has moved into other tutorials.
 
 All tutorials: https://github.com/andry81/index#tutorials
 
@@ -48,17 +49,20 @@ All tutorials: https://github.com/andry81/index#tutorials
 
 5. All scripts does use GitHub composite action to reuse workflow code base: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 
-> **Warning** Not all features of a generic GitHub action is supported: [Known Issues](#known-issues)
+> [!WARNING]
+> Not all features of a generic GitHub action is supported: [Known Issues](#known-issues)
 
 ## Repositories:
 
 You need setup 3-4 repositories.
 
 1. Repository which statistic you want to track: `myrepo`.<br />
-   > **Note** This repository is only required for repository based statistic scripts.
+   > [!NOTE]
+   > This repository is only required for repository based statistic scripts.
 
 2. Repository, where statistic will be saved: `myrepo--gh-stats`.<br />
-   > **Note** You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
+   > [!NOTE]
+   > You still can use a single repository to request and to store, but it is not convenient and will distort the clone statistic (at least until the GitHub action user who is used to checkout the statistic output repository won't be involved into clones counter change), so is not recommended.
 
 3. Repository, where to store github workflow support scripts: `gh-workflow`.<br />
    You can fork or use it from here: https://github.com/andry81-devops/gh-workflow
@@ -74,15 +78,20 @@ You need setup 3-4 repositories.
    All action scripts:<br />
    https://github.com/andry81/index#action-scripts
 
-> **Note** See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all GitHub workflow scripts (`.github/workflows/*.yml`) in a single repository.
+> [!NOTE]
+> See <a href="#reuse">REUSE</a> section for details if you have multiple repositories and want to store all GitHub workflow scripts (`.github/workflows/*.yml`) in a single repository.
 
-> **Note** You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to read content from another repository and obtain the read permission from that repository: `repo`->`public_repo`.
+> [!NOTE]
+> You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to read content from another repository and obtain the read permission from that repository: `repo`->`public_repo`.
 
-> **Note** You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to write content into another repository and obtain the push permission into that repository: `repo`.
+> [!NOTE]
+> You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to write content into another repository and obtain the push permission into that repository: `repo`.
 
-> **Note** You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to read statistic of another repository and obtain the push permission into that repository: `repo`.
+> [!NOTE]
+> You need to attach a personal access token (PAT) into a repository used to run a GitHub action script (`.github/workflows/*.yml`) to read statistic of another repository and obtain the push permission into that repository: `repo`.
 
-> **Note** A separate personal access token (PAT) does not require to be attached into a repository used to run a GitHub action script for another repository as long as that another repository is owned by the same owner as a repository which runs a GitHub action script.
+> [!NOTE]
+> A separate personal access token (PAT) does not require to be attached into a repository used to run a GitHub action script for another repository as long as that another repository is owned by the same owner as a repository which runs a GitHub action script.
 
 * `myrepo` -> needs read/write access permissions to read repository statistic as not public repository metadata (not files)
 * `myrepo--gh-stats` -> needs read/write access permissions to read/write repository files
@@ -91,7 +100,8 @@ To generate PAT: https://docs.github.com/en/github/authenticating-to-github/crea
 
 To attach PAT: https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository
 
-> **Warning** Beginning from the `gh-workflow` `1.3.0` as a dependency to all action scripts the checkout action script https://github.com/actions/checkout can be replaced by a wrapper script https://github.com/andry81-devops/gh-action--git-checkout which does support checkout from an empty repository and you can leave an output repository empty before the first checkout.
+> [!WARNING]
+> Beginning from the `gh-workflow` `1.3.0` as a dependency to all action scripts the checkout action script https://github.com/actions/checkout can be replaced by a wrapper script https://github.com/andry81-devops/gh-action--git-checkout which does support checkout from an empty repository and you can leave an output repository empty before the first checkout.
 > Now the initial output repository state is not required as input. The information about initial output repository state is removed from here.
 
 The `myrepo` repository should contain 1 file per statistic entity:
@@ -102,7 +112,8 @@ The `myrepo` repository should contain 1 file per statistic entity:
 
 * [.github/workflows/accum-gh-rate-limits.yml example](https://github.com/andry81-devops/gh-action--accum-gh-rate-limits#accum-gh-rate-limits-yml)
 
-> **Warning** You must replace all placeholder into respective values:
+> [!WARNING]
+> You must replace all placeholder into respective values:
 
 * `{{REPO_OWNER}}` -> repository owner
 * `{{REPO}}` -> `myrepo`
@@ -131,7 +142,8 @@ After that you can add badges to reference a repository statistic:
 </p>
 ```
 
-> **Note** There is https://github.com/andry81-devops/gh-action--accum-content action script which can periodically download all the dynamic badges and other files into a content cache repository.
+> [!NOTE]
+> There is https://github.com/andry81-devops/gh-action--accum-content action script which can periodically download all the dynamic badges and other files into a content cache repository.
 
 You can add links pointing a content cache repository instead, to leave the `README.md` a bit simplier:
 
@@ -161,7 +173,8 @@ https://github.com/andry81-devops/accum-content#features-of-a-standalone-content
 
 ## REUSE
 
-> **Warning** The GitHub does disable all workflow scripts in case of repository main branch inactivity for a period of time: [Known Issues](#known-issues)
+> [!WARNING]
+> The GitHub does disable all workflow scripts in case of repository main branch inactivity for a period of time: [Known Issues](#known-issues)
 
 You can reuse all workflow scripts from a single repository to ease the maintain and scripts edit.
 
@@ -184,7 +197,8 @@ name: "myrepo1: GitHub clones counter for 14 days at every 8 hours and clones ac
 name: "myrepo1: GitHub views counter for 14 days at every 8 hours and views accumulator"
 ```
 
-> **Note** If you have multiple repositories to store the statistic, then you can create a github organization account like `<owner>-stats` and move all statistic repositories into organization's account.
+> [!NOTE]
+> If you have multiple repositories to store the statistic, then you can create a github organization account like `<owner>-stats` and move all statistic repositories into organization's account.
 > It will leave the repositories page of the original account untouched on each commit into an organization account repository.
 
 ## Known Issues
